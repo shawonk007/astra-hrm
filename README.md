@@ -173,4 +173,4 @@ This AstraHRM is distributed under the `GNU General Public License version 3.0 (
 
 ## Author
 
-`AstraHRM` is developed and maintained by **[Muhammad Nasir Uddin Khan Shawon](https://www.shawon-khan.com/)**. You can find more about me on my [GitHub profile](https://github.com/shawonk007). Feel free to reach out via email at `shawonk007@gmail.com` or connect with me on **[LinkedIn](https://www.linkedin.com/in/shawonkhan007)**..
+`AstraHRM` is developed and maintained by **[Muhammad Nasir Uddin Khan Shawon](https://www.shawon-khan.com/)**. You can find more about me on my [GitHub profile](https://github.com/shawonk007). Feel free to reach out via email at `shawonk007@gmail.com` or connect with me on **[LinkedIn](https://www.linkedin.com/in/shawonkhan007)**.
