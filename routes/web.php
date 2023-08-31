@@ -23,8 +23,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/admin', [AdminController::class, 'login'])->name('admin.login');
+Route::get('/forget', [AdminController::class, 'forget'])->name('admin.forget');
+Route::get('/recover', [AdminController::class, 'recover'])->name('admin.recover');
+
 Route::middleware('guest')->prefix('admin')->group(function() {
-  Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
+  Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
 Route::middleware('auth')->group(function () {

@@ -63,4 +63,16 @@ class AdminController extends Controller
     {
         //
     }
+
+    public function login(): View {
+        return view('auth.sign-in');
+    }
+
+    public function forget(): View {
+        return view('auth.forget');
+    }
+
+    public function recover(): View {
+        return view('auth.recover');
+    }
 }
