@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Models\Role;
+use App\Http\Requests\StoreRoleRequest;
+use App\Http\Requests\UpdateRoleRequest;
 use Illuminate\View\View;
 
-class UserController extends Controller {
+class RoleController extends Controller {
     /**
      * Display a listing of the resource.
      */
     public function index(): View {
         //
-        return view('users.index');
+        return view('roles.index');
     }
 
     /**
@@ -20,41 +21,41 @@ class UserController extends Controller {
      */
     public function create(): View {
         //
-        return view('users.create');
+        return view('roles.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) {
+    public function store(StoreRoleRequest $request) {
         //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $user) {
+    public function show(Role $role) {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user) {
+    public function edit(Role $role) {
         //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user) {
+    public function update(UpdateRoleRequest $request, Role $role) {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user) {
+    public function destroy(Role $role) {
         //
     }
 }

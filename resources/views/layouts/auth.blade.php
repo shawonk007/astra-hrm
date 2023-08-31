@@ -6,6 +6,8 @@
     <meta name="author" content="Muhammad Nasir Uddin Khan Shawon" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>{{ $title }} | {{ config('app.name', 'Laravel') }}</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('dist/img/AdminLTELogo.png') }}" type="image/x-icon">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
     <!-- Font Awesome -->
