@@ -48,7 +48,7 @@
             </p>
           </a>
         </li>
-        <li class="nav-header">{{ __('User Management') }}</li>
+        <li class="nav-header border-bottom mb-1">{{ __('USER MANAGEMENT') }}</li>
         <li class="nav-item">
           <a href="javascript:void(0)" class="nav-link">
             <i class="nav-icon fas fa-users"></i>
@@ -78,7 +78,77 @@
             <p>{{ __('User Settings') }}</p>
           </a>
         </li>
-        <li class="nav-header">{{ __('EXAMPLES') }}</li>
+        <li class="nav-header border-bottom mb-1">{{ __('EMPLOYEE MANAGEMENT') }}</li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link">
+            <i class="nav-icon fas fa-user-tie"></i>
+            <p>{{ ('Our Employees') }}
+              <i class="fas fa-angle-left right"></i>
+              <span class="badge badge-info right">6</span>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="javascript:void(0)" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{ __('Manage Employees') }}</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="javascript:void(0)" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{ __('Add New Employee') }}</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link">
+            <i class="nav-icon fas fa-user-tie"></i>
+            <p>{{ ('Our Departments') }}
+              <i class="fas fa-angle-left right"></i>
+              <span class="badge badge-info right">6</span>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ route('departments.index') }}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{ __('Manage Departments') }}</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('departments.create') }}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{ __('Add New Department') }}</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="javascript:void(0)" class="nav-link">
+            <i class="nav-icon fas fa-user-tie"></i>
+            <p>{{ ('Job Designations') }}
+              <i class="fas fa-angle-left right"></i>
+              <span class="badge badge-info right">6</span>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{{ route('designations.index') }}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{ __('Manage Designations') }}</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{{ route('designations.create') }}" class="nav-link">
+                <i class="far fa-circle nav-icon"></i>
+                <p>{{ __('Add New Designation') }}</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-header border-bottom mb-1">{{ __('EXAMPLES') }}</li>
         <li class="nav-item">
           <a href="javascript:void(0)" class="nav-link">
             <i class="nav-icon fas fa-copy"></i>

@@ -6,10 +6,56 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="javascript:void(0)" class="nav-link">Home</a>
+      <a href="{{ route('admin.dashboard') }}" class="nav-link">{{ __('Home') }}</a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
       <a href="javascript:void(0)" class="nav-link">Contact</a>
+    </li>
+    <!-- Notifications Dropdown Menu -->
+    <li class="nav-item dropdown">
+      <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)">
+        <i class="fas fa-plus mr-1"></i>
+        <span class="pl-1">{{ __('New') }}</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left">
+        <span class="dropdown-item dropdown-header">{{ ('Create New Items') }}</span>
+        <div class="dropdown-divider"></div>
+        <a href="javascript:void(0)" class="dropdown-item">
+          <i class="fas fa-plus mr-2"></i>
+          <span>{{ ('New User') }}</span>
+          <span class="float-right text-muted text-sm">{{ ('0') }}</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="javascript:void(0)" class="dropdown-item">
+          <i class="fas fa-plus mr-2"></i>
+          <span>{{ ('New Department') }}</span>
+          <span class="float-right text-muted text-sm">{{ ('0') }}</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="javascript:void(0)" class="dropdown-item">
+          <i class="fas fa-plus mr-2"></i>
+          <span>{{ ('New Designation') }}</span>
+          <span class="float-right text-muted text-sm">{{ ('0') }}</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="javascript:void(0)" class="dropdown-item">
+          <i class="fas fa-plus mr-2"></i>
+          <span>{{ ('New Employee') }}</span>
+          <span class="float-right text-muted text-sm">{{ ('0') }}</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="javascript:void(0)" class="dropdown-item">
+          <i class="fas fa-plus mr-2"></i>
+          <span>{{ ('New Leave') }}</span>
+          <span class="float-right text-muted text-sm">{{ ('0') }}</span>
+        </a>
+        <div class="dropdown-divider"></div>
+        <a href="javascript:void(0)" class="dropdown-item">
+          <i class="fas fa-plus mr-2"></i>
+          <span>{{ ('New Holiday') }}</span>
+          <span class="float-right text-muted text-sm">{{ ('0') }}</span>
+        </a>
+      </div>
     </li>
   </ul>
 

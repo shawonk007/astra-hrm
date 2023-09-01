@@ -17,7 +17,7 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}" />
   </head>
-  <body class="hold-transition login-page">
+  <body class="hold-transition dark-mode login-page">
     <main class="login-box">
       <x-auth-logo />
       <section class="card card-outline card-primary">

@@ -56,7 +56,7 @@
                   <div class="col-6">
                     <div class="form-group mb-0">
                       <select class="form-control" id="exampleSelectBorder">
-                        <option value="">{{ ('-- Choose One --') }}</option>
+                        <option value="">{{ ('-- Choose Status --') }}</option>
                         <option value="1">{{ ('Enable') }}</option>
                         <option value="0">{{ ('Disable') }}</option>
                       </select>

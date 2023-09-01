@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('role_id')->nullable();
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
-            $table->string('first_name')->nullable();
-            $table->string('last_name');
-            $table->string('username')->unique();
-            $table->string('email')->unique();
+            $table->string('first_name', 50)->nullable();
+            $table->string('last_name', 50);
+            $table->string('username', 15)->unique();
+            $table->string('email', 100)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone')->unique();
+            $table->string('phone', 19)->unique();
+            $table->string('avatar')->nullable();
             $table->string('password');
             $table->tinyInteger('status')->nullable();
             $table->rememberToken();
