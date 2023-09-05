@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
@@ -49,6 +50,7 @@ Route::middleware('guest')->prefix('admin')->group(function() {
     Route::resource('roles', RoleController::class);
     Route::resource('departments', DepartmentController::class);
     Route::resource('designations', DesignationController::class);
+    Route::resource('employees', EmployeeController::class);
 });
 
 Route::middleware('auth')->group(function () {

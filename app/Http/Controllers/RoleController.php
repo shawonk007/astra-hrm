@@ -41,8 +41,9 @@ class RoleController extends Controller {
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Role $role) {
+    public function edit(Role $role): View {
         //
+        return view('roles.edit', compact('role'));
     }
 
     /**

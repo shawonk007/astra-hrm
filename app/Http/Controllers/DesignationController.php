@@ -41,8 +41,9 @@ class DesignationController extends Controller {
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Designation $designation) {
+    public function edit(Designation $designation):View {
         //
+        return view('designations.edit', compact('designation'));
     }
 
     /**

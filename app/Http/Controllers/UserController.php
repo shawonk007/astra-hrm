@@ -40,8 +40,9 @@ class UserController extends Controller {
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(User $user) {
+    public function edit(User $user): View {
         //
+        return view('users.edit', compact('user'));
     }
 
     /**

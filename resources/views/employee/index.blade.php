@@ -1,7 +1,7 @@
 <x-admin-layout>
 
   <x-slot name="title">
-    {{ __('Manage Departments') }}
+    {{ __('Manage Employees') }}
   </x-slot>
     
   <x-slot name="header">
@@ -10,12 +10,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">{{ __('Our Departments') }}</h1>
+            <h1 class="m-0">{{ __('Our Employees') }}</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">{{ ('Home') }}</a></li>
-              <li class="breadcrumb-item active">{{ __('Departments') }}</li>
+              <li class="breadcrumb-item active">{{ __('Employees') }}</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -30,7 +30,7 @@
         <div class="card-header">
           <h3 class="card-title">{{ __('Departments DataTable') }}</h3>
           <div class="card-tools">
-            <a href="{{ route('departments.create') }}" class="btn btn-primary btn-sm">
+            <a href="{{ route('employees.create') }}" class="btn btn-primary btn-sm">
               <i class="fas fa-plus mr-1"></i>
               <span class="pl-1">{{ __('Add New') }}</span>
             </a>
@@ -41,10 +41,11 @@
             <thead>
               <tr>
                 <th class="d-none d-xl-table-cell" >{{ __('SL') }}</th>
-                <th>{{ __('Title') }}</th>
-                <th class="d-none d-xl-table-cell" >{{ __('Slug') }}</th>
+                <th>{{ __('Name of Employee') }}</th>
+                <th class="d-none d-xl-table-cell" >{{ __('Department') }}</th>
+                <th class="d-none d-xl-table-cell" >{{ __('Designation') }}</th>
                 <th>{{ __('Status') }}</th>
-                <th class="d-none d-xl-table-cell" >{{ __('Date Created') }}</th>
+                <th class="d-none d-xl-table-cell" >{{ __('Date Joined') }}</th>
                 <th>{{ __('Action') }}</th>
               </tr>
             </thead>
@@ -52,11 +53,12 @@
               <tr>
                 <td class="d-none d-xl-table-cell" >01</td>
                 <td>
-                  <strong>Super Admin</strong>
+                  <strong>Shawon Khan</strong>
                 </td>
-                <td class="d-none d-xl-table-cell" >super-admin</td>
+                <td class="d-none d-xl-table-cell" >Information & Technology</td>
+                <td class="d-none d-xl-table-cell" >Chief Information Officer</td>
                 <td>
-                  <span class="badge bg-success">{{ __('Enable') }}</span>
+                  <span class="badge bg-info">{{ __('Currenty Employeed') }}</span>
                 </td>
                 <td class="d-none d-xl-table-cell" >2 minutes ago</td>
                 <td class="d-flex">
@@ -74,10 +76,11 @@
             <tfoot>
               <tr>
                 <th class="d-none d-xl-table-cell" >{{ __('SL') }}</th>
-                <th>{{ __('Title') }}</th>
-                <th class="d-none d-xl-table-cell" >{{ __('Slug') }}</th>
+                <th>{{ __('Name of Employee') }}</th>
+                <th class="d-none d-xl-table-cell" >{{ __('Department') }}</th>
+                <th class="d-none d-xl-table-cell" >{{ __('Designation') }}</th>
                 <th>{{ __('Status') }}</th>
-                <th class="d-none d-xl-table-cell" >{{ __('Date Created') }}</th>
+                <th class="d-none d-xl-table-cell" >{{ __('Date Joined') }}</th>
                 <th>{{ __('Action') }}</th>
               </tr>
             </tfoot>

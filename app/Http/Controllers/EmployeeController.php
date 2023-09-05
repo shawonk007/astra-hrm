@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Department;
-use App\Http\Requests\StoreDepartmentRequest;
-use App\Http\Requests\UpdateDepartmentRequest;
+use App\Models\Employee;
+use App\Http\Requests\StoreEmployeeRequest;
+use App\Http\Requests\UpdateEmployeeRequest;
 use Illuminate\View\View;
 
-class DepartmentController extends Controller {
+class EmployeeController extends Controller {
     /**
      * Display a listing of the resource.
      */
     public function index(): View {
         //
-        return view('departments.index');
+        return view('employee.index');
     }
 
     /**
@@ -21,42 +21,46 @@ class DepartmentController extends Controller {
      */
     public function create(): View {
         //
-        return view('departments.create');
+        return view('employee.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreDepartmentRequest $request) {
+    public function store(StoreEmployeeRequest $request)
+    {
         //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Department $department) {
+    public function show(Employee $employee): View {
         //
+        return view('employee.show', compact('employee'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Department $department): View {
+    public function edit(Employee $employee): View {
         //
-        return view('departments.edit', compact('department'));
+        return view('employee.edit', compact('employee'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDepartmentRequest $request, Department $department) {
+    public function update(UpdateEmployeeRequest $request, Employee $employee)
+    {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Department $department) {
+    public function destroy(Employee $employee)
+    {
         //
     }
 }
