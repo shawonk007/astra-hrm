@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Http\Requests\StoreDepartmentRequest;
 use App\Http\Requests\UpdateDepartmentRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class DepartmentController extends Controller {
@@ -27,8 +28,10 @@ class DepartmentController extends Controller {
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreDepartmentRequest $request) {
+    public function store(StoreDepartmentRequest $request): RedirectResponse {
         //
+        Department::create($request->all());
+        return back()->with('created', 'Deraptment created successfully!');
     }
 
     /**
@@ -49,14 +52,18 @@ class DepartmentController extends Controller {
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDepartmentRequest $request, Department $department) {
+    public function update(UpdateDepartmentRequest $request, Department $department): RedirectResponse {
         //
+        $department->update($request->all());
+        return back()->with('updated', 'Department uupdated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Department $department) {
+    public function destroy(Department $department): RedirectResponse {
         //
+        $department->delete();
+        return back()->with('deleted', 'Department deleted successfully!');
     }
 }

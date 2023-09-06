@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class RoleController extends Controller {
@@ -27,8 +28,10 @@ class RoleController extends Controller {
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRoleRequest $request) {
+    public function store(StoreRoleRequest $request): RedirectResponse {
         //
+        Role::create($request->all());
+        return back()->with('created', 'Role created successfully!');
     }
 
     /**
@@ -49,14 +52,18 @@ class RoleController extends Controller {
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateRoleRequest $request, Role $role) {
+    public function update(UpdateRoleRequest $request, Role $role): RedirectResponse {
         //
+        $role->update($request->all());
+        return back()->with('updated', 'Role updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Role $role) {
+    public function destroy(Role $role): RedirectResponse {
         //
+        $role->delete();
+        return back()->with('deleted', 'Role deleted successfully!');
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Designation;
 use App\Http\Requests\StoreDesignationRequest;
 use App\Http\Requests\UpdateDesignationRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class DesignationController extends Controller {
@@ -27,8 +28,10 @@ class DesignationController extends Controller {
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreDesignationRequest $request) {
+    public function store(StoreDesignationRequest $request): RedirectResponse {
         //
+        Designation::create($request->all());
+        return back()->with('created', 'Designation created successfully!');
     }
 
     /**
@@ -49,8 +52,10 @@ class DesignationController extends Controller {
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDesignationRequest $request, Designation $designation) {
+    public function update(UpdateDesignationRequest $request, Designation $designation): RedirectResponse {
         //
+        $designation->update($request->all());
+        return back()->with('updated', 'Designation updated successfully!');
     }
 
     /**
@@ -58,5 +63,7 @@ class DesignationController extends Controller {
      */
     public function destroy(Designation $designation) {
         //
+        $designation->delete();
+        return back()->with('deleted', 'Designation deleted successfully!');
     }
 }

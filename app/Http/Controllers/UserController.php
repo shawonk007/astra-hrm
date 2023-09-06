@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -26,8 +27,10 @@ class UserController extends Controller {
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request) {
+    public function store(Request $request): RedirectResponse {
         //
+        User::create($request->all());
+        return back()->with('created', 'User created successfully!');
     }
 
     /**
@@ -48,14 +51,18 @@ class UserController extends Controller {
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, User $user) {
+    public function update(Request $request, User $user): RedirectResponse {
         //
+        $user->update($request->all());
+        return back()->with('updated', 'User updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $user) {
+    public function destroy(User $user): RedirectResponse {
         //
+        $user->delete();
+        return back()->with('deleted', 'User deleted successfully!');
     }
 }
