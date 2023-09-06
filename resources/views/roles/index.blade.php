@@ -49,27 +49,39 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="d-none d-xl-table-cell" >01</td>
-                <td>
-                  <strong>Super Admin</strong>
-                </td>
-                <td class="d-none d-xl-table-cell" >super-admin</td>
-                <td>
-                  <span class="badge bg-success">{{ __('Enable') }}</span>
-                </td>
-                <td class="d-none d-xl-table-cell" >2 minutes ago</td>
-                <td class="d-flex">
-                  <a href="javascript:void(0)" class="btn btn-info btn-sm mr-1">
-                    <i class="fas fa-edit"></i>
-                  </a>
-                  <form action="" method="post">
-                    <button type="submit" class="btn btn-danger btn-sm">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </form>
-                </td>
-              </tr>
+              @forelse ($roles as $role)
+                <tr>
+                  <td class="d-none d-xl-table-cell" >{{ $loop->iteration }}</td>
+                  <td>
+                    <strong>{{ $role->title }}</strong>
+                  </td>
+                  <td class="d-none d-xl-table-cell" >{{ $role->slug }}</td>
+                  <td>
+                    @if ($role->status === 1)
+                      <span class="badge bg-success">{{ __('Enable') }}</span>
+                    @elseif ($role->status === 0)
+                      <span class="badge bg-danger">{{ __('Disable') }}</span>  
+                    @else
+                      <span class="badge bg-secondary">{{ __('Pending') }}</span>
+                    @endif
+                  </td>
+                  <td class="d-none d-xl-table-cell" >{{ $role->created_at->diffforhumans() }}</td>
+                  <td class="d-flex">
+                    <a href="{{ route('roles.edit', $role->id) }}" class="btn btn-info btn-sm mr-1">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <form action="" method="post">
+                      <button type="submit" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+              @empty
+                <tr>
+                  <td colspan="6" class="text-center">{{  __('No Data Found') }}</td>
+                </tr>
+              @endforelse
             </tbody>
             <tfoot>
               <tr>

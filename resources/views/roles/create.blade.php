@@ -28,7 +28,8 @@
   <section class="content">
     <div class="container-fluid">
       <!-- form start -->
-      <form id="quickForm">
+      <form action="{{ route('roles.store') }}" method="POST" id="quickForm">
+        @csrf
         <div class="row">
           <div class="col-12 d-flex justify-content-center">
             <div class="card card-primary col-10 col-lg-6 px-0">
@@ -55,7 +56,7 @@
                   </div>
                   <div class="col-6">
                     <div class="form-group mb-0">
-                      <select class="form-control" id="exampleSelectBorder">
+                      <select class="form-control" id="status">
                         <option value="">{{ ('-- Choose Status --') }}</option>
                         <option value="1">{{ ('Enable') }}</option>
                         <option value="0">{{ ('Disable') }}</option>

@@ -59,13 +59,13 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
+              <a href="{{ route('users.index') }}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>{{ __('Manage Users') }}</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="javascript:void(0)" class="nav-link">
+              <a href="{{ route('users.create') }}" class="nav-link">
                 <i class="far fa-circle nav-icon"></i>
                 <p>{{ __('Add New User') }}</p>
               </a>
@@ -73,7 +73,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="javascript:void(0)" class="nav-link">
+          <a href="{{ route('roles.index') }}" class="nav-link">
             <i class="fas fa-user-shield nav-icon"></i>
             <p>{{ __('User Settings') }}</p>
           </a>

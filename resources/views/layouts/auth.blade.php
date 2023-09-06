@@ -16,11 +16,14 @@
     <link rel="stylesheet" href="{{ asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}" />
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}" />
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
   <body class="hold-transition dark-mode login-page">
     <main class="login-box">
       <x-auth-logo />
       <section class="card card-outline card-primary">
+        <x-user-avatar />
         <div class="card-body login-card-body">
           @isset($header)
             {{ $header }}

@@ -28,7 +28,9 @@
   <section class="content">
     <div class="container-fluid">
       <!-- form start -->
-      <form id="quickForm">
+      <form action="{{ route('roles.update', $role->id) }}" method="POST" id="quickForm">
+        @csrf
+        @method('put')
         <div class="row">
           <div class="col-12 d-flex justify-content-center">
             <div class="card card-success col-10 col-lg-6 px-0">
@@ -42,23 +44,23 @@
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <input type="text" name="title" class="form-control" id="title" placeholder="Role Title" required />
+                  <input type="text" name="title" class="form-control" id="title" placeholder="Role Title" value="{{ $role->title }}" required />
                 </div>
                 <div class="form-group">
-                  <textarea name="description" class="form-control resize-none" id="description" cols="30" rows="6" placeholder="Type role details here ..."></textarea>
+                  <textarea name="description" class="form-control resize-none" id="description" cols="30" rows="6" placeholder="Type role details here ...">{{ $role->description }}</textarea>
                 </div>
                 <div class="row">
                   <div class="col-6">
                     <div class="form-group mb-0">
-                      <input type="text" name="slug" class="form-control" id="slug" placeholder="Role Slug" required readonly />
+                      <input type="text" name="slug" class="form-control" id="slug" placeholder="Role Slug" value="{{ $role->slug }}" required readonly />
                     </div>
                   </div>
                   <div class="col-6">
                     <div class="form-group mb-0">
-                      <select class="form-control" id="exampleSelectBorder">
+                      <select class="form-control" id="status">
                         <option value="">{{ ('-- Choose Status --') }}</option>
-                        <option value="1">{{ ('Enable') }}</option>
-                        <option value="0">{{ ('Disable') }}</option>
+                        <option value="1" {{ $role->status === 1 ? 'selected' : '' }} >{{ ('Enable') }}</option>
+                        <option value="0" {{ $role->status === 0 ? 'selected' : '' }} >{{ ('Disable') }}</option>
                       </select>
                     </div>
                   </div>
