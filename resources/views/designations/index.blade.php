@@ -3,7 +3,7 @@
   <x-slot name="title">
     {{ __('Manage Designations') }}
   </x-slot>
-    
+
   <x-slot name="header">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -42,40 +42,49 @@
               <tr>
                 <th class="d-none d-xl-table-cell" >{{ __('SL') }}</th>
                 <th>{{ __('Title') }}</th>
-                <th class="d-none d-xl-table-cell" >{{ __('Slug') }}</th>
                 <th>{{ __('Status') }}</th>
                 <th class="d-none d-xl-table-cell" >{{ __('Date Created') }}</th>
                 <th>{{ __('Action') }}</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="d-none d-xl-table-cell" >01</td>
-                <td>
-                  <strong>Super Admin</strong>
-                </td>
-                <td class="d-none d-xl-table-cell" >super-admin</td>
-                <td>
-                  <span class="badge bg-success">{{ __('Enable') }}</span>
-                </td>
-                <td class="d-none d-xl-table-cell" >2 minutes ago</td>
-                <td class="d-flex">
-                  <a href="javascript:void(0)" class="btn btn-info btn-sm mr-1">
-                    <i class="fas fa-edit"></i>
-                  </a>
-                  <form action="" method="post">
-                    <button type="submit" class="btn btn-danger btn-sm">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </form>
-                </td>
-              </tr>
+              @forelse ($designations as $designation)
+                <tr>
+                  <td class="d-none d-xl-table-cell" >{{ $loop->iteration }}</td>
+                  <td>
+                    <strong>{{ $designation->title }}</strong>
+                  </td>
+                  <td>
+                    @if ($designation->status === 1)
+                      <span class="badge bg-success">{{ __('Enable') }}</span>
+                    @elseif ($designation->status === 0)
+                      <span class="badge bg-danger">{{ __('Disable') }}</span>
+                    @else
+                      <span class="badge bg-secondary">{{ __('Pending') }}</span>
+                    @endif
+                  </td>
+                  <td class="d-none d-xl-table-cell" >{{ $designation->created_at->diffforhumans() }}</td>
+                  <td class="d-flex">
+                    <a href="{{ route('designations.edit', $designation->id) }}" class="btn btn-info btn-sm mr-1">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <form action="" method="post">
+                      <button type="submit" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+              @empty
+                <tr>
+                  <td colspan="5" class="text-center">{{ __('No Data Found') }}</td>
+                </tr>
+              @endforelse
             </tbody>
             <tfoot>
               <tr>
                 <th class="d-none d-xl-table-cell" >{{ __('SL') }}</th>
                 <th>{{ __('Title') }}</th>
-                <th class="d-none d-xl-table-cell" >{{ __('Slug') }}</th>
                 <th>{{ __('Status') }}</th>
                 <th class="d-none d-xl-table-cell" >{{ __('Date Created') }}</th>
                 <th>{{ __('Action') }}</th>
@@ -86,7 +95,7 @@
       </div><!-- /.card -->
     </div>
   </section>
-    
+
   <x-slot name="script">
   </x-slot>
 
