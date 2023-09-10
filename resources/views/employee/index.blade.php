@@ -3,7 +3,7 @@
   <x-slot name="title">
     {{ __('Manage Employees') }}
   </x-slot>
-    
+
   <x-slot name="header">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -50,28 +50,34 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="d-none d-xl-table-cell" >01</td>
-                <td>
-                  <strong>Shawon Khan</strong>
-                </td>
-                <td class="d-none d-xl-table-cell" >Information & Technology</td>
-                <td class="d-none d-xl-table-cell" >Chief Information Officer</td>
-                <td>
-                  <span class="badge bg-info">{{ __('Currenty Employeed') }}</span>
-                </td>
-                <td class="d-none d-xl-table-cell" >2 minutes ago</td>
-                <td class="d-flex">
-                  <a href="javascript:void(0)" class="btn btn-info btn-sm mr-1">
-                    <i class="fas fa-edit"></i>
-                  </a>
-                  <form action="" method="post">
-                    <button type="submit" class="btn btn-danger btn-sm">
-                      <i class="fas fa-trash-alt"></i>
-                    </button>
-                  </form>
-                </td>
-              </tr>
+              @forelse ($employees as $employee)
+                <tr>
+                  <td class="d-none d-xl-table-cell" >{{ $loop->iteration }}</td>
+                  <td>
+                    <strong>{{ $employee->firstname . ' ' . $employee->lastname }}</strong>
+                  </td>
+                  <td class="d-none d-xl-table-cell" >{{ $employee->department->title }}</td>
+                  <td class="d-none d-xl-table-cell" >{{ $employee->designation->title }}</td>
+                  <td>
+                    <span class="badge bg-info">{{ __('Currenty Employeed') }}</span>
+                  </td>
+                  <td class="d-none d-xl-table-cell" >{{ $employee->created_at->diffforhumans() }}</td>
+                  <td class="d-flex">
+                    <a href="javascript:void(0)" class="btn btn-info btn-sm mr-1">
+                      <i class="fas fa-edit"></i>
+                    </a>
+                    <form action="" method="post">
+                      <button type="submit" class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+              @empty
+                <tr>
+                  <td colspan="7" class="text-center">{{ __('No Data Found') }}</td>
+                </tr>
+              @endforelse
             </tbody>
             <tfoot>
               <tr>
@@ -89,7 +95,7 @@
       </div><!-- /.card -->
     </div>
   </section>
-    
+
   <x-slot name="script">
   </x-slot>
 
