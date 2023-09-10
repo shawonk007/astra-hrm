@@ -3,7 +3,7 @@
   <x-slot name="title">
     {{ __('Update Department') }}
   </x-slot>
-    
+
   <x-slot name="header">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -42,23 +42,23 @@
               </div>
               <div class="card-body">
                 <div class="form-group">
-                  <input type="text" name="title" class="form-control" id="title" placeholder="Department Title" required />
+                  <input type="text" name="title" class="form-control" id="title" placeholder="Department Title" value="{{ $department->title }}" required />
                 </div>
                 <div class="form-group">
-                  <textarea name="description" class="form-control resize-none" id="description" cols="30" rows="6" placeholder="Type department details here ..."></textarea>
+                  <textarea name="description" class="form-control resize-none" id="description" cols="30" rows="6" placeholder="Type department details here ...">{{ $department->description }}</textarea>
                 </div>
                 <div class="row">
                   <div class="col-6">
                     <div class="form-group mb-0">
-                      <input type="text" name="slug" class="form-control" id="slug" placeholder="Department Slug" required readonly />
+                      <input type="text" name="slug" class="form-control" id="slug" placeholder="Department Slug" value="{{ $department->slug }}" required />
                     </div>
                   </div>
                   <div class="col-6">
                     <div class="form-group mb-0">
                       <select class="form-control" id="exampleSelectBorder">
                         <option value="">{{ ('-- Choose Status --') }}</option>
-                        <option value="1">{{ ('Enable') }}</option>
-                        <option value="0">{{ ('Disable') }}</option>
+                        <option value="1" {{ $department->status === 1 ? 'selected' : '' }} >{{ ('Enable') }}</option>
+                        <option value="0" {{ $department->status === 0 ? 'selected' : '' }} >{{ ('Disable') }}</option>
                       </select>
                     </div>
                   </div>
@@ -86,7 +86,7 @@
       </form>
     </div><!-- /.container-fluid -->
   </section><!-- /.content -->
-    
+
   <x-slot name="script">
   </x-slot>
 
